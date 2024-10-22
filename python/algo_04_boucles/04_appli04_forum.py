@@ -11,11 +11,13 @@ DEBUT
 FIN
 
 
+
 mdp="mot de passe"
 mdpSaisie=input("Donnez le mot de passe du forum : ")
 while (mdp != mdpSaisie) :
     mdpSaisie=input("Donnez le mot de passe du forum : ")
 print("Bienvenue sur le forum")
+
 
 
 
