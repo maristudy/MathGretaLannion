@@ -14,15 +14,15 @@ print(kmjour)
 8 : 100
 9 : 110
 10: 120
-
+"""
 kmjour=30
 kmtotal=kmjour
 for i in range(20):
     kmjour=kmjour+10
     kmtotal=kmtotal+kmjour
 print(kmtotal)
-"""
 
+"""
 kmjour=30
 kmtotal=kmjour
 for i in range(20): #de 0 à 19
@@ -31,3 +31,4 @@ for i in range(20): #de 0 à 19
     if((i+2)%7)==0:
         print ("semaine ",((i+2)//7),", ",kmtotal," km parcourus")
         kmtotal=0
+"""
