@@ -21,7 +21,7 @@ DEBUT
     Fin Si
     compteur <- 0
     Pour i de 0 à 4
-        Pour j de 0 à 4
+        Pour j de i à 4
             Si tab[i] = tab[j] alors
                 compteur <- compteur + 1
                 Si compteur = 3 alors
