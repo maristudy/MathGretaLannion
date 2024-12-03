@@ -1,6 +1,6 @@
 nom : calcul cotisation
-variables numériques : tabloCategorie, i
-variables alphanumérique : tabloTarif, reponse
+variables numériques : tabloTarif, i
+variables alphanumérique : tabloCategorie, reponse
 
 DEBUT
     tabloCategorie[0] <- "Senior"
