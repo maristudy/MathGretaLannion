@@ -1,7 +1,23 @@
 """
 
+
+
+
+pour tester : 
+http://matrixmultiplication.xyz/
+
+
+
+
+
+
+
+
+
+
+
 Nom : multiplication de matrices
-variables numériques : nbLigneA, nbColonneA, nbLigneB, nbColonneB, tabloA, tabloB, tabloC, i, j, k
+variables numériques : nbLigneA, nbColonneA, nbLigneB, nbColonneB,tabloA, tabloB, tabloC, i, j, k
 
 DEBUT
     Afficher <<quel est le nombre de ligne de la premiere matrice ? >>
