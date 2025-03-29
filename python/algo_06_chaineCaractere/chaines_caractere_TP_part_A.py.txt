@@ -1,0 +1,150 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+DEBUT
+    saisir message
+    n <- longueur(message)
+    i <- 0
+    cpt <- 0
+    TANT QUE (i<n)
+        SI message[i]="a" ALORS
+            cpt <- cpt+1
+        FIN SI
+    ..........
+    FIN TANT QUE
+    afficher cpt
+        
+FIN
+
+
+"""
+"""
+1.a /
+variables numérique : n , i ,cpt
+variable alphanumérique : message
+
+1.b/
+instruction manquante :
+i <- i + 1
+Il faut faire varier la variable i pour éviter une boucle infinie
+
+1.c /
+Le rôle de cet algorithme est de compter le nombre de "a" dans le message saisi
+
+1.d /
+"J'aime les ananas" affiche 4
+"Avez vous appris votre cours ?" affiche 1
+
+1.e /
+SI message[i]="a" ALORS
+devient
+SI message[i]="a" OU message[i]="A" ALORS
+
+1.f /
+
+DEBUT
+    minuscule <- "abcdefghijklmnopqrstuvwxyz"
+    majuscule <- "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    resultat <- [0]*26
+    
+    saisir message
+    n <- longueur(message)
+    i <- 0
+    cpt <- 0
+    TANT QUE (i<n)
+        SI minuscule.find(message[i]) != -1 ALORS
+            resultat[minuscule.index(message[i])] <- resultat[minuscule.index(message[i])] + 1
+        SINON SI majuscule.find(message[i]) != -1 ALORS
+            resultat[majuscule.index(message[i])] <- resultat[majuscule.index(message[i])] + 1
+        FIN SI
+        i <- i+1
+    FIN TANT QUE
+    afficher resultat
+        
+FIN
+
+
+"""
+
+"""
+# 2.a/ implémenter et tester A1
+
+
+message=input("veuillez saisir un message : ")
+n=len(message)
+i=0
+cpt=0
+while (i<n):
+    if (message[i]=="a"):
+        cpt=cpt+1
+    i=i+1
+print(cpt)
+
+"""
+
+
+"""
+# 2.b/ implémenter et tester A2
+"""
+
+"""
+minuscule="abcdefghijklmnopqrstuvwxyz"
+majuscule="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+resultat=[0]*26
+    
+message=input("veuillez saisir un message : ")
+n=len(message)
+i=0
+cpt=0
+while (i<n):
+    if (minuscule.find(message[i]) != -1 ):
+        resultat[minuscule.index(message[i])] = resultat[minuscule.index(message[i])] + 1
+    elif (majuscule.find(message[i]) != -1) :
+        resultat[majuscule.index(message[i])] = resultat[majuscule.index(message[i])] + 1
+    i = i+1
+
+print(resultat)
+
+"""
+
+"""
+# 2.c/ modif A2
+"""
+minuscule="abcdefghijklmnopqrstuvwxyz"
+majuscule="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+resultat=[0]*26
+    
+message=input("veuillez saisir un message : ")
+n=len(message)
+i=0
+cpt=0
+while (i<n):
+    if (minuscule.find(message[i]) != -1 ):
+        resultat[minuscule.index(message[i])] = resultat[minuscule.index(message[i])] + 1
+    elif (majuscule.find(message[i]) != -1) :
+        resultat[majuscule.index(message[i])] = resultat[majuscule.index(message[i])] + 1
+    i = i+1
+print("la lettre la plus utilisee est : "+minuscule[resultat.index(max(resultat))]+" ou "+majuscule[resultat.index(max(resultat))])
+
+
+
+
+
+
+

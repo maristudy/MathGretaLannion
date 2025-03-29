@@ -1,0 +1,210 @@
+
+"""
+nom : id entreprise
+variables alphanumériques : tabService, nom, prenom, code, civilite, service
+variables numériques : an, num, idCivilite, idService, annee
+
+DEBUT
+    tabService <- ["direction","secretariat","gestion","informatique","communication","entretien","fabrication"]
+    afficher("Indiquez votre nom")
+    saisir(nom)
+    afficher("Indiquez votre prénom")
+    saisir(prenom)
+    afficher("indiquez votre code personnel")
+    saisir(code)
+    
+    an <- code[0;2]
+    num <- code[2;6]
+    idCivilite <- code[6;7]
+    idService <- code[7;8]
+    
+    SI an > 25 ALORS
+        annee <- 1900+an
+    SINON
+        annee <- 2000+an
+    FIN SI
+    
+    SI idCivilite = "1" ALORS
+        civilite <- "Madame"
+    SINON
+        civilite <- "Monsieur"
+    FIN SI
+    
+    service <- tabService[idService]
+    
+    afficher(civilite+" "+prenom+" "+nom
+        +" travaille au service "+service
+        +". Elle travaille dans l'entreprise depuis "
+        +annee+" et son numero d'embauche est le "+num+".")
+FIN
+"""
+
+
+
+tabService = ["direction","secretariat","gestion","informatique","communication","entretien","fabrication"]
+nom=input("Indiquez votre nom : ")
+prenom=input("Indiquez votre prénom : ")
+code=input("indiquez votre code personnel : ")
+
+an=int(code[0:2])
+num=code[2:6]
+idCivilite=code[6:7]
+idService=int(code[7:8])
+    
+if an > 25 :
+    annee=str(1900+an)
+else :
+    annee=str(2000+an)
+
+if idCivilite == "1" :
+    civilite = "Madame"
+else:
+    civilite = "Monsieur"
+        
+service = tabService[idService]
+    
+print(civilite+" "+prenom+" "+nom+" travaille au service "+service+". Elle travaille dans l'entreprise depuis "+annee+" et son numero d'embauche est le "+num+".")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

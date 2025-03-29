@@ -1,0 +1,221 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#part B
+
+"""
+nom : B1 : codage cesar
+
+DEBUT
+    alphabet <- "abcdefghijklmnopqrstuvwxyz"
+    SAISIR mot
+    nouveaumot <- ""
+    POUR i allant de 1 à longueur(mot)
+        indice <- position dans l'alphabet de mot[i]
+        nouvelindice <- (indice+3) % 26
+        nouveaumot <- nouveaumot + alphabet[nouvelindice]
+    FIN POUR
+    afficher nouveaumot
+FIN
+
+
+
+a/
+variable numérique : i, indice, nouvelindice
+variable alphanumerique : alphabet, mot, nouveaumot
+
+b/
+Le rôle de cet algorithme est de re-ecrire le message avec 3 lettres de decalage ( par exemple le a devient d )
+
+c/
+lettre          b     o     n     j     o     u     r
+indice          1     14    13    9     14    20    17
+on ajoute 3     4     17    16    12    17    23    20          
+new lettre      e     r     q     m     r     x     u
+
+d/
+nom : codage cesar espace ponctuation
+
+DEBUT
+    alphabet <- "abcdefghijklmnopqrstuvwxyz"
+    SAISIR mot
+    nouveaumot <- ""
+    POUR i allant de 1 à longueur(mot)
+        SI alphabet.trouve(mot[i]) ALORS 
+            indice <- position dans l'alphabet de mot[i]
+            nouvelindice <- (indice+3) % 26
+            nouveaumot <- nouveaumot + alphabet[nouvelindice]
+        SINON
+            nouveaumot <- nouveaumot + mot[i]
+        FIN SI
+    FIN POUR
+    afficher nouveaumot
+FIN
+
+e/
+nom : decodage cesar espace ponctuation
+
+DEBUT
+    alphabet <- "abcdefghijklmnopqrstuvwxyz"
+    SAISIR mot
+    nouveaumot <- ""
+    POUR i allant de 1 à longueur(mot)
+        SI alphabet.trouve(mot[i]) ALORS 
+            indice <- position dans l'alphabet de mot[i]
+            nouvelindice <- (indice-3) % 26
+            nouveaumot <- nouveaumot + alphabet[nouvelindice]
+        SINON
+            nouveaumot <- nouveaumot + mot[i]
+        FIN SI
+    FIN POUR
+    afficher nouveaumot
+FIN
+
+"""
+
+"""
+#2.a implementer B1
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+mot=input("SAISIR mot")
+nouveaumot = ""
+for i in range(0,len(mot)):
+    indice = alphabet.index(mot[i])
+    nouvelindice = (indice+3) % 26
+    nouveaumot = nouveaumot + alphabet[nouvelindice]
+print(nouveaumot)
+"""
+
+"""
+# 2.b.i
+minuscule="abcdefghijklmnopqrstuvwxyz"
+majuscule="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+resultat=[0]*26
+    
+message=input("veuillez saisir un message : ")
+n=len(message)
+i=0
+cpt=0
+while (i<n):
+    if (minuscule.find(message[i]) != -1 ):
+        resultat[minuscule.index(message[i])] = resultat[minuscule.index(message[i])] + 1
+    elif (majuscule.find(message[i]) != -1) :
+        resultat[majuscule.index(message[i])] = resultat[majuscule.index(message[i])] + 1
+    i = i+1
+print("la lettre la plus utilisee est : "+minuscule[resultat.index(max(resultat))]+" ou "+majuscule[resultat.index(max(resultat))])
+"""
+
+"""
+# 2.b.ii
+minuscule="abcdefghijklmnopqrstuvwxyz"
+majuscule="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+resultat=[0]*26
+    
+message=input("veuillez saisir un message : ")
+n=len(message)
+i=0
+cpt=0
+while (i<n):
+    if (minuscule.find(message[i]) != -1 ):
+        resultat[minuscule.index(message[i])] = resultat[minuscule.index(message[i])] + 1
+    elif (majuscule.find(message[i]) != -1) :
+        resultat[majuscule.index(message[i])] = resultat[majuscule.index(message[i])] + 1
+    i = i+1
+print("la lettre la plus utilisee est : "+minuscule[resultat.index(max(resultat))]+" ou "+majuscule[resultat.index(max(resultat))])
+
+indiceMax = resultat.index(max(resultat))
+indiceE = minuscule.index("e") #on suppose que la lettre max correspond à e
+
+if indiceMax == indiceE: #pas de décalage
+    decalage = 0
+    
+if indiceMax > indiceE: # petit décalage : e+decalage dans ]e;z]
+    decalage = indiceMax - indiceE
+    
+if indiceMax < indiceE : # gros decalage : e+decalage dans [a;e[
+    decalage = (indiceMax+26) - indiceE
+
+nouveaumot = ""
+for i in range(0,len(message)):
+    if minuscule.find(message[i])!=-1 : 
+        indice = minuscule.index(message[i])
+        nouvelindice = (indice-decalage) % 26
+        nouveaumot = nouveaumot + minuscule[nouvelindice]
+    else:
+        nouveaumot = nouveaumot + message[i]
+
+print( nouveaumot)
+"""
+
+# 2.c proposer plusieurs decodage
+
+minuscule="abcdefghijklmnopqrstuvwxyz"
+majuscule="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+resultat=[0]*26
+lettres="esantir"    #lettres frequentes testees pour decoder
+message=input("veuillez saisir un message : ")
+n=len(message)
+i=0
+cpt=0
+
+while (i<n):
+    if (minuscule.find(message[i]) != -1 ):
+        resultat[minuscule.index(message[i])] = resultat[minuscule.index(message[i])] + 1
+    elif (majuscule.find(message[i]) != -1) :
+        resultat[majuscule.index(message[i])] = resultat[majuscule.index(message[i])] + 1
+    i = i+1
+print("la lettre la plus utilisee est : "+minuscule[resultat.index(max(resultat))]+" ou "+majuscule[resultat.index(max(resultat))])
+
+indiceMax = resultat.index(max(resultat))
+
+for i in range(0,len(lettres)):
+    
+    indiceE = minuscule.index(lettres[i]) #on suppose que la lettre max correspond à e
+
+    if indiceMax == indiceE: #pas de décalage
+        decalage = 0
+    
+    if indiceMax > indiceE: # petit décalage : e+decalage dans ]e;z]
+        decalage = indiceMax - indiceE
+    
+    if indiceMax < indiceE : # gros decalage : e+decalage dans [a;e[
+        decalage = (indiceMax+26) - indiceE
+
+    nouveaumot = ""
+    for j in range(0,len(message)):
+        if minuscule.find(message[j])!=-1 : 
+            indice = minuscule.index(message[j])
+            nouvelindice = (indice-decalage) % 26
+            nouveaumot = nouveaumot + minuscule[nouvelindice]
+        else:
+            nouveaumot = nouveaumot + message[j]
+
+    print( "decodage avec max="+lettres[i]+" => "+nouveaumot)
+
+# ru jkjwmxwwj : decodage avec max=a => il abandonna
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,83 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+nom : voyelle v1
+variables alphanumériques : voyelle, lettre
+
+DEBUT
+	voyelle <- "aeiouy"
+	afficher("saisir une lettre minuscule : ")
+	saisir(lettre)
+	SI lettre dans voyelle ALORS
+        afficher(" c'est une voyelle")
+    SINON
+        afficher("c'est une consonne")
+    FIN SI
+FIN
+"""
+
+"""
+voyelle="aeiouy"
+lettre=input("saisir une lettre minuscule : ")
+if lettre in voyelle :
+    print(" c'est une voyelle")
+else:
+    print(" c'est une consonne")
+"""
+
+
+
+"""
+nom : voyelle v2
+variables alphanumériques : voyelle, lettre, alphabet
+
+DEBUT
+	voyelle <- "aeiouy"
+	alphabet <- "abcdefghijklmnopqrstuvwxyz"
+	afficher("saisir une lettre minuscule ou majuscule")
+	saisir(lettre)
+	SI lettre dans voyelle ALORS
+        afficher(" c'est une voyelle")
+    SINON
+        afficher("c'est une consonne")
+    FIN SI
+	SI lettre dans alphabet ALORS
+        afficher(" c'est une minuscule")
+    SINON
+        afficher("c'est une majuscule")
+    FIN SI    
+FIN
+"""
+ 
+voyelle="aeiouy"
+alphabet="abcdefghijklmnopqrstuvwxyz"
+
+lettre=input("saisir une lettre minuscule : ")
+
+if lettre in voyelle :
+    print("c'est une voyelle")
+else:
+    print("c'est une consonne")
+    
+if lettre in alphabet :
+    print(" c'est une minuscule")
+else:
+    print(" c'est une majuscule")
+    
+ 

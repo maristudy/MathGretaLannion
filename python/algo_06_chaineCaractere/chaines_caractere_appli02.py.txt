@@ -1,0 +1,30 @@
+
+"""
+nom : reecriture
+variables alphanumériques : messageMAJ, alphabet, majuscule, message
+variables numériques : i, indice
+
+DEBUT
+    messageMAJ <- ""
+    alphabet <- "abcdefghijklmnopqrstuvwxyz"
+    majuscule <- "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    afficher("saisir une chaine de caractere en minuscule")
+    saisir(message)
+    POUR i allant de 0 à longueur(message)-1 
+        indice <- alphabet.index(message[i])
+        messageMAJ <-  messageMAJ + majuscule[indice]
+    FIN POUR
+    afficher messageMAJ 
+FIN
+"""
+
+messageMAJ=""
+alphabet="abcdefghijklmnopqrstuvwxyz"
+majuscule="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+message=input("saisir une chaine de caractere en minuscule : ")
+for i in range(0,len(message)):
+    indice=alphabet.index(message[i])
+    messageMAJ=messageMAJ+majuscule[indice]
+print(messageMAJ)
+

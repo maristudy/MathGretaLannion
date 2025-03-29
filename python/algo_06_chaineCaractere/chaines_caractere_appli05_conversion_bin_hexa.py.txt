@@ -1,0 +1,86 @@
+
+"""
+nom : groupe de 4
+variables alphanumériques : nbBin
+variables numériques : nbCaractere
+
+DEBUT
+   
+    afficher("écrire un nombre en binaire : ")
+    saisir(nbBin)
+    
+    nbCaractere <- longueur(nbBin)
+    SI (nbCaractere%4 != 0) ALORS
+    #si la taille de nbBin n'est pas un multiple de 4
+        POUR i allant de 0 à 4-(nbCaractere%4)
+        # je complete nbBin avec des "0" avant pour que la taille de nbBin
+        # soit un multiple de 4
+            nbBin <- "0"+nbBin
+        FIN POUR
+    FIN SI
+        
+FIN
+
+"""
+
+
+"""
+nom : conversion binaire hexa
+variables alphanumériques : binaire, hexa, nbHexa, nbBin
+variables numériques : nbCaractere, i
+
+DEBUT
+    binaire <- ["0000","0001","0010","0011","0100","0101","0110","0111","1000","1001","1010","1011","1100","1101","1110","1111"]
+    hexa <- ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+    nbHexa <- ""
+    
+    afficher("écrire un nombre en binaire : ")
+    saisir(nbBin)
+    
+    nbCaractere <- longueur(nbBin)
+    SI (nbCaractere%4 != 0) ALORS #si la taille de nbBin n'est pas un multiple de 4
+        POUR i allant de 0 à 4-(nbCaractere%4)
+        # je complete nbBin avec des "0" avant pour que la taille de nbBin
+        #soit un multiple de 4
+            nbBin <- "0"+nbBin
+        FIN POUR
+    FIN SI
+    
+    nbCarHexa <- longueur(nbBin)/4 # je cherche le nombre de caractère hexa du résultat
+    
+    POUR i allant de 0 à nbCarHexa 
+        nbHexa <- nbHexa + hexa[binaire.index(nbBin[0+(4*i):4+(4*i)])]
+        #je prends mes bits par bloc de 4,
+        #je cherche leur index dans le tableau binaire,
+        #puis je prends l'element de hexa avec le meme indice
+    FIN POUR
+    
+    afficher nbHexa
+    
+FIN
+
+
+
+
+
+"""
+
+
+binaire = ["0000","0001","0010","0011","0100","0101","0110","0111","1000","1001","1010","1011","1100","1101","1110","1111"]
+hexa = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+nbHexa = ""
+    
+nbBin=input("écrire un nombre en binaire : ")
+    
+nbCaractere = len(nbBin)
+if (nbCaractere%4 != 0) :
+    for i in range(0,4-(nbCaractere%4)):  #len(nbBin)=6 6%4=2 
+        nbBin = "0"+nbBin  
+nbCarHexa = len(nbBin)//4
+    
+for i in range(0,nbCarHexa) :
+    nbHexa=nbHexa + hexa[(binaire.index(nbBin[0+(4*i):4+(4*i)]))] # 00010101
+
+
+print(nbHexa)
+

@@ -1,0 +1,55 @@
+
+"""
+nom : conversion hexa decimal
+variables alphanumériques : hexa, nbHexa
+variables numériques : nbDeci, i
+
+DEBUT
+    nbDeci <- 0
+    hexa <- ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+    afficher("donner un nombre en hexadecimal : ")
+    saisir(nbHexa)
+    
+    POUR i allant de 0 à longueur(nbHexa) 
+        nbDeci <- nbDeci+(hexa.index(nbHexa[longueur(nbHexa)-1-i])*(16**i))
+    FIN POUR
+    
+    afficher nbDeci
+    
+FIN
+
+remarque : 
+nbDeci <- nbDeci+(hexa.index(nbHexa[longueur(nbHexa)-1-i])*(16**i))
+
+longueur(nbHexa)-1-i]) : permet de parcourir la chaine à l'envers
+( de la droite vers la gauche )
+hexa.index(nbHexa[longueur(nbHexa)-1-i]) : je cherche l'index
+dans le tableau hexa du caractère de la chaine saisie
+(hexa.index(nbHexa[longueur(nbHexa)-1-i])*(16**i)) : je multiplie ce nombre par
+la bonne puissance de 16
+nbDeci+(hexa.index(nbHexa[longueur(nbHexa)-1-i])*(16**i)) : j'ajoute ce nombre à nbDeci
+
+exemple avec 5B :
+i=0 donc nbHexa[longueur(nbHexa)-1-0]) est B
+( le dernier caractère, qui est à la position 11 du tableau hexa )
+je multiplie 11 par 16**0 ( donc 11*1 = 11 )
+nbDeci = 0 + 11 = 11
+
+i=1 donc nbHexa[longueur(nbHexa)-1-1]) est 5
+( l'avant dernier caractère, qui est à la position 5 du tableau hexa )
+je multiplie 5 par 16**1 ( donc 5*16 = 80 )
+nbDeci = 11 + 80 = 91
+
+i=2, je quitte la boucle "pour" et j'affiche le résultat
+
+"""
+
+nbDeci = 0
+hexa=["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+nbHexa=input("donner un nombre en hexadecimal : ")
+    
+for i in range(0, len(nbHexa)):
+    nbDeci = nbDeci+(int(hexa.index(nbHexa[len(nbHexa)-1-i]))*(16**i))
+    
+print (nbDeci)
+
