@@ -1,0 +1,75 @@
+# revisions pour le BTS blanc 02
+
+#ageMin, ageMax, prix, refTarif
+tarifs=[[0,3,0,"T0"],
+        [4,11,2,"T1"],
+        [12,26,3,"T2"],
+        [27,65,4,"T3"],
+        [66,999,1,"T4"]]
+
+#nom, age
+famille=[["papi",66],
+         ["mamie",65],
+         ["papa",29],
+         ["maman",26],
+         ["lutin",5],
+         ["petiot",4]]
+  
+ticket=[]
+
+"""
+partie A : sur papier
+
+algorithme A1 
+variables alphanumériques : tarifs(), famille(), ticket(), nom, refTarif
+variables numériques : i, j, age, ageMin, ageMax, prix
+
+DEBUT
+1    POUR i DE 0 à taille(famille)-1 FAIRE
+2        nom <- famille[i][0]
+3        age <- famille[i][1]
+4        POUR j DE 0 à taille(tarifs)-1 FAIRE
+5            ageMin <- tarifs[j][0]
+6            ageMax <- tarifs[j][1]
+7            prix <- tarifs[j][2]
+8            refTarif <- tarifs[j][3]
+9            SI ageMin <= age ...... age <= ageMax ALORS
+10                ticket <- ticket.ajouter([nom, prix,refTarif])
+11            FIN SI
+12        FIN POUR
+13    FIN POUR
+14    afficher ticket
+FIN        
+
+
+1/ La ligne 9 a été partiellement effacée, complétez la correctement
+2/ Pourquoi avons nous besoin de deux variables d'incrémentation i et j ? Pouvons nous en avoir qu'une seule ?
+3/ Quel sera le résultat de cet algorithme si on utilise les tableaux "famille" et "tarifs" qui vous sont donnés ?
+4/ Pourquoi l'age maximum du dernier tarif est à 999 ans ?
+5/ Quel est le rôle de cet algorithme ?
+
+6/ Créer un algorithme A2 à partir de A1. Vous modifiez A1 en un algorithme A2 qui affiche le ticket avec des numéros de ligne et affiche le montant total du ticket
+exemple:
+1 : nom:papi prix:1 euro(s) refTarif:T4
+2 : nom:mamie prix:4 euro(s) refTarif:T3
+3 : nom:papa prix:4 euro(s) refTarif:T3
+4 : nom:lutin prix:2 euro(s) refTarif:T1
+total à payer : 11 euro(s)
+
+7/ Créer un algorithme A3 à partir de A2. Vous modifiez A2 en un algorithme A3 qui propose de supprimer des lignes du ticket.
+On arrête de proposer de supprimer des lignes en saisissant -1 ou lorsque le ticket est vide.
+La ligne supprimée est celle dont on a donné le numéro de ligne.
+Après chaque suppression, on affiche le nouveau ticket avec le nouveau montant total
+
+exemple:
+en reprennant le ticket précédent, si on supprime la ligne 3 et on obtient :
+1 : nom:papi prix:1 euro(s) refTarif:T4
+2 : nom:mamie prix:4 euro(s) refTarif:T3
+3 : nom:lutin prix:2 euro(s) refTarif:T1
+total à payer : 7 euro(s)
+
+partie B : sur ordinateur
+
+implémenter les algorithmes A1, A2, A3 en python dans 3 fichiers différents. Tester les programmes réalisés
+
+"""
