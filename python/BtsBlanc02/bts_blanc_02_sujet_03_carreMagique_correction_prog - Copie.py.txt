@@ -1,0 +1,162 @@
+# BTS blanc 02 - sujet 03
+""""
+#typeSpectacle, prixAdherent, prixPleinTarif, prixCoupPouce
+tarifs=[["A",10,16,8],
+        ["B",16,24,10],
+        ["C",22,30,14],
+        ["Conf",7,7,3]]
+
+#initialePrenom, typeTarif
+famille=[["I","adherent"],
+         ["J","adherent"],
+         ["K","plein"],
+         ["L","pouce"]]
+
+#typeSpectacle, typeTarif, nbPlaces, prixPlace
+ResaSaison=[]
+"""
+"""
+partie A : sur papier
+
+algorithme A1 
+variables alphanumériques : tarifs(), famille(), ticket(), nom, refTarif
+variables numériques : i, j, age, ageMin, ageMax, prix
+
+DEBUT
+1.    reponse <- "B"
+2.    TANT QUE reponse != "Q" FAIRE
+3.        afficher("A pour ajouter une reservation")
+4.        afficher("M pour modifier une reservation")
+5.        afficher("Q pour quitter")
+6.        afficher("Saisissez votre choix : ")
+7.        saisir(reponse)
+8.        
+9.        SI reponse = "A" ALORS
+10.            afficher("ajouter une reservation")
+11.        FIN SI
+12.        
+13.        SI reponse = "M" ALORS
+14.            afficher("modifier une reservation")
+15.        FIN SI
+16.        
+17.    FIN TANT QUE
+18.    afficher("vos reservations pour la saison 2024-2025 sont : ",ResaSaison)
+FIN        
+
+
+1/ Pourquoi, à la ligne 1, la variable reponse est initialisée à "B" ?
+2/ Que se passe-t-il si, à la ligne 1, la variable reponse est initialisée à "Q" ?
+3/ Donnez la liste des variables utilisées par l'algorithme A1 et leurs types.
+4/ Dans la boucle "TANT QUE" nous avons deux conditions. Une pour tester si la reponse est "A" et une pour tester si la reponse est "M".
+Faut-il ajouter une troisième condition pour tester si la reponse est "Q" ? Justifier votre reponse.
+5/ Quel est le rôle de cet algorithme ?
+
+6/ L'algorithme A2 permet d'ajouter une reservation à un spectacle.
+La reservation sera ajoutée au tableau ResaSaison.
+
+Vous demanderez l'initiale de la personne qui réalise la réservation, le type de spectacle souhaité ( "A", "B", "C" ou "Conf" ), le nombre de place souhaité.
+ATTENTION : le prix n'est pas saisie mais retrouvé dans les tableaux fournis !
+
+Dans le tableau ResaSaison, chaque ligne contiendra les informations suivantes dans cet ordre :
+initiale, type spectacle, nombre de place, tarif unitaire appliqué
+
+Par exemple, si "I" prend 2 places pour un spectacle de type "A", nous aurons dans ResaSaison la ligne suivante :
+["I","A",2,10]
+
+Après avoir ajouté une reservation au tableau ResaSaison, vous afficherez le tableau ResaSaison ( toute mise en forme du tableau est inutile )
+"""
+#typeSpectacle, prixAdherent, prixPleinTarif, prixCoupPouce
+tarifs=[["A",10,16,8],
+        ["B",16,24,10],
+        ["C",22,30,14],
+        ["Conf",7,7,3]]
+
+#initialePrenom, typeTarif
+famille=[["I","adherent"],
+         ["J","adherent"],
+         ["K","plein"],
+         ["L","pouce"]]
+
+#typeSpectacle, typeTarif, nbPlaces, prixPlace
+ResaSaison=[['I', 'A', 2, 10], ['K', 'A', 1, 16], ['L', 'A', 1, 8]]
+
+reponse = "B"
+while reponse != "Q" :
+    print("A pour ajouter une reservation")
+    print("M pour modifier une reservation")
+    print("Q pour quitter")
+    print("Saisissez votre choix : ")
+    reponse=input()
+           
+    if reponse == "A" :
+        print("ajouter une reservation")
+        initiale = input("donnez l'initiale de votre prenom")
+        tarif=input("donnez le tarif")
+        nbPlace=int(input("indiquez le nombre de place"))
+        for i in range(0,len(famille)):
+            if famille[i][0]==initiale :
+                if famille[i][1]=="adherent" :
+                    colPrix=1
+                if famille[i][1]=="plein" :
+                    colPrix=2
+                if famille[i][1]=="pouce" :
+                    colPrix=3
+        for j in range(0,len(tarifs)) :
+            if tarifs[j][0]==tarif :
+                ResaSaison.append([initiale,tarif, nbPlace,tarifs[j][colPrix]])
+    print(ResaSaison)
+            
+    if reponse == "M" :
+        print("modifier une reservation")
+        total=0
+        for i in range(0,len(ResaSaison)):
+            print("ligne ",i+1," : initiale : ",ResaSaison[i][0] ," spectacle de type ",ResaSaison[i][1]," ", ResaSaison[i][2]," place(s), prix unitaire : ",ResaSaison[i][3]," euros")
+            total= total+(ResaSaison[i][2]*ResaSaison[i][3])
+        print("Montant total : ",total," euros")
+        ligne=int(input("ligne à modifier"))
+        newNbPlace=int(input("nouveau nombre de place"))
+        if newNbPlace==0:
+            ResaSaison.pop(ligne-1)
+        else:
+            ResaSaison[ligne-1][2]=newNbPlace
+        print(ResaSaison)
+print("vos reservations pour la saison 2024-2025 sont : ",ResaSaison)
+
+
+
+
+
+
+
+
+
+
+
+"""
+7/ L'algorithme A3 propose de modifier des lignes du tableau ResaSaison.
+On commence par afficher chaque ligne du tableau ResaSaison en les numérotant.
+Puis nous affichons le montant total des réservations.
+
+Par exemple, si nous avons le tableau suivant :
+ResaSaison =[["I","A",2,10],
+["J","A",3,10]]
+
+Nous aurons l'affichage suivant :
+ligne 1 : initiale : I , spectacle de type "A", 2 place(s), prix unitaire : 10 euros
+ligne 2 : initiale : J , spectacle de type "A", 3 place(s), prix unitaire : 10 euros
+Montant total : 50 euros
+
+On demande la ligne à modifier, puis le nouveau nombre de place voulu.
+Si le nombre de place de la ligne devient nul, alors la ligne est supprimée du tableau.
+
+Si nous retirons 3 places à la ligne 2, alors la ligne sera retirée du tableau.
+Après avoir modifié une reservation au tableau ResaSaison, vous afficherez le tableau ResaSaison ( toute mise en forme du tableau est inutile )
+
+partie B : sur ordinateur
+
+Vous présenterez 3 programmes, dans des fichiers séparés.
+Le premier programme correspond à l'implémentation en python de l'algorithme A1.
+Le second programme correspond au premier programme, avec l'ajout de l'implémentation de l'algorithme A2.
+Le troisième programme correspond au second programme avec l'ajout de l'implémentation de l'algorithme A3.
+
+"""
