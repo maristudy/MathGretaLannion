@@ -1,0 +1,109 @@
+# BTS blanc 02 - sujet 04
+
+#typePapier, prix
+tarifs=[["A4blanc",2],
+        ["A4couleur",3],
+        ["A3blanc",4],
+        ["A3Couleur",5]]
+
+#client, nbA4blanc, nbA4couleur, nbA3blanc, nbA3Couleur
+clients=[["GretaLannion",15,0,5,0],
+         ["GretaGuigamp",10,5,1,5],
+         ["FLDantec",30,2,15,2],
+         ["APavie",27,0,12,1]]
+
+
+livraison=[]
+
+"""
+partie A : sur papier
+
+algorithme A1 
+variables alphanumériques : .....
+variables numériques : .....
+
+DEBUT
+1.    reponse <- "B"
+2.    TANT QUE reponse != "Q" FAIRE
+3.        afficher("A pour ajouter une commande")
+4.        afficher("S pour supprimer une ligne de commande")
+5.        afficher("L pour afficher le total de la livraison")
+6.        afficher("Q pour quitter")
+7.        afficher("Saisissez votre choix : ")
+8.        saisir(reponse)
+9.        
+10.        SI reponse = "A" ALORS
+11.            afficher("ajouter une commande")
+12.        FIN SI
+13.        
+14.        SI reponse = "S" ALORS
+15.            afficher("supprimer une ligne de commande")
+16.        FIN SI
+17.
+18.        SI reponse = "L" ALORS
+19.            afficher("afficher le total de la livraison")
+20.        FIN SI
+21.        
+22.    FIN TANT QUE
+23.   
+FIN        
+
+
+1/ Pourquoi, à la ligne 1, la variable reponse est initialisée à "B" ?
+2/ Que se passe-t-il si, à la ligne 1, la variable reponse est initialisée à "Q" ?
+3/ Donnez la liste des variables utilisées par l'algorithme A1 et leurs types.
+4/ Dans la boucle "TANT QUE" nous avons 3 conditions. Une pour tester si la reponse est "A", une pour tester si la reponse est "S" et une pour tester si la reponse est "L".
+Faut-il ajouter une quatrième condition pour tester si la reponse est "Q" ? Justifier votre reponse.
+5/ Quel est le rôle de cet algorithme ?
+
+6/ On vous demande de réaliser l’algorithme A2. L'algorithme A2 permet d'ajouter un client au tableau clients.
+Pour cela il faut demander le nom du client, le nombre de ramettes A4 blanc, le nombre de ramettes A4 couleur, le nombre de ramettes A3 blanc, le nombre de ramettes A3 couleur
+Après avoir ajouté la commande au tableau client, vous afficherez le tableau client ( toute mise en forme du tableau est inutile )
+
+7/ On vous demande de réaliser l’algorithme A3. L'algorithme A3 permet de supprimer une ligne au tableau clients.
+Pour supprimer une ligne, on commence par afficher chaque ligne du tableau client en les numérotant. Puis on demande le numéro de la ligne à supprimer.
+Après avoir supprimé la commande du tableau client, vous afficherez le tableau client ( toute mise en forme du tableau est inutile )
+
+8/On vous demande de réaliser l’algorithme A4. L'algorithme A4 permet d'afficher le total des livraisons.
+Pour afficher le total des livraisons, nous utiliserons le tableau "livraison".
+Chaque ligne du tableau livraison contiendra les informations suivantes :
+Le nom du produit, la quantité totale à livrée, le prix unitaire et le montant de la ligne
+Aucune saisie n'est demandée à l'utilisateur. Ces informations proviennent uniquement des tableaux fournis.
+Pour la ligne des ramettes de papier A4 blanc, nous aurons avec notre exemple :
+["A4blanc",82,2,164]
+
+On affiche le nom du produit, le nombre total de chaque produit, sont prix unitaire, le prix total de la ligne puis on calcul le montant total.
+Avec notre exemple nous aurons l'addition suivante :
+A4blanc : 82 * 2 = 164 euros
+A4couleur : 7 * 3 = 21 euros
+A3Blanc : 33 * 4 = 132 euros
+A3Couleur : 8 * 5 = 40 euros
+Montant total : 357 euros
+
+partie B : sur ordinateur
+
+Vous présenterez 4 programmes, dans des fichiers séparés.
+Le premier programme correspond à l'implémentation en python de l'algorithme A1.
+Le second programme correspond au premier programme, avec l'ajout de l'implémentation de l'algorithme A2.
+Le troisième programme correspond au second programme avec l'ajout de l'implémentation de l'algorithme A3.
+Le quatrieme programme correspond au troisième programme avec l'ajout de l'implémentation de l'algorithme A4.
+
+"""
+
+totalCommande=0
+addition=[]
+
+for i in range(0,len(tarifs)):
+    totalLigne=0
+    for j in range(0,len(clients)):
+        totalLigne=totalLigne+clients[j][i+1]
+    addition.append([tarifs[i][0],totalLigne, tarifs[i][1], totalLigne*tarifs[i][1] ])
+        
+for k in range(0,len(addition)):
+    print(addition[k][0],": ",addition[k][1]," * ",addition[k][2]," = ",addition[k][3]," euros") 
+    totalCommande=totalCommande+addition[k][3]
+        
+print("Montant total : ",totalCommande," euros")
+
+
+
