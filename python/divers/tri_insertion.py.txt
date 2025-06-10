@@ -1,0 +1,54 @@
+#tableau = [7,2,5,10,-1,1]
+#tableau = [7,2,5,10,8,1]
+tableau = [7,2,5,10,-1,1,3,1,4]
+
+def triinsertion(L):
+    result=[]
+    result.append(L[0])
+    for i in range(1,len(L)):
+        if L[i] < result[0]:
+            result.insert(0,L[i])
+        elif L[i] > result[len(result)-1]:
+            result.append(L[i])
+        else:
+            j=0
+            while j < len(result):
+                if result[j] <=L[i]  and L[i] <= result[j+1]:
+                    result.insert(j+1,L[i])
+                    j=len(result)
+                    i=i+1
+                j=j+1
+    return result
+
+
+def triinsertionV1(L):
+    for i in range(1, len(L)) :
+        cle = L[i]
+        j = i - 1 # On commence par l'élément juste à gauche de la clé
+        while j >= 0 and L[j] > cle :
+            L[j+1] = L[j] # On décale l'élément vers la droite
+            j = j - 1 # On passe à l'élément encore à gauche
+        L[j+1] = cle
+    return L
+
+
+"""
+Le principe est simple: on pointe successivement sur tous les membres de la liste à partir du 2ème
+(boucle for i), et pour chaque membre, on l'insère au bon endroit
+des membres précédents (boucle for k) dans l'ordre de tri.
+"""
+
+def triinsertionV2(L):
+    for i in range(1,len(L)):
+        if L[i]<L[i-1]:
+            for k in range(0,i):
+                if L[i]<L[k]:
+                    X=L.pop(i) #on retire le ième element du tableau pour le mettre dans la variable X
+                    L.insert(k,X) #on ajoute X dans le tableau à la kème position
+                    k=i+1
+    return L
+
+
+print(triinsertion(tableau))
+print(triinsertionV1(tableau))
+print(triinsertionV2(tableau))
